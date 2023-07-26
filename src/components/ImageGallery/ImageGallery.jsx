@@ -7,7 +7,7 @@ const ImageGallery = ({ images, onImageClick }) => {
     <ul className={css.gallery}>
       {images.map((image) => (
         <ImageGalleryItem key={image.id} image={image} onClick={() => onImageClick(image.largeImageURL)} />
-      ))};
+      ))}
     </ul>
   );
 };
