@@ -1,4 +1,3 @@
-// components/App.js
 
 import React, { useState } from 'react';
 import axios from 'axios';
@@ -6,7 +5,7 @@ import Searchbar from './Searchbar/Searchbar';
 import ImageGallery from './ImageGallery/ImageGallery';
 import Button from './Button/Button';
 import Modal from './Modal/Modal';
-import CustomLoader from './Loader/Loader'; // Zmieniamy import na CustomLoader
+import CustomLoader from './Loader/Loader'; 
 import css from './app.module.css';
 
 const API_KEY = '38384941-ef7cd509cb805b326d83218b0';
