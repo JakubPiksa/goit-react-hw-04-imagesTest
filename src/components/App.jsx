@@ -69,14 +69,13 @@ function App() {
     <div className={css.body}>
       <h1>Image Search App</h1>
       <Searchbar onSubmit={handleSearchSubmit} />
-      {isLoading ? (
-        <CustomLoader /> 
-      ) : (
+      {isLoading && <CustomLoader />}
+    
         <>
           <ImageGallery images={images} onImageClick={handleImageClick} />
           {images.length > 0 && <Button onClick={handleLoadMoreClick} />}
         </>
-      )}
+      
       {showModal && <Modal imageUrl={selectedImage} onClose={closeModal} />}
     </div>
   );
