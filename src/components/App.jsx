@@ -1,10 +1,12 @@
+// components/App.js
+
 import React, { useState } from 'react';
 import axios from 'axios';
 import Searchbar from './Searchbar/Searchbar';
 import ImageGallery from './ImageGallery/ImageGallery';
 import Button from './Button/Button';
 import Modal from './Modal/Modal';
-import CustomLoader from './Loader/Loader';
+import CustomLoader from './Loader/Loader'; // Zmieniamy import na CustomLoader
 import css from './app.module.css';
 
 const API_KEY = '38384941-ef7cd509cb805b326d83218b0';
@@ -20,7 +22,7 @@ function App() {
 
   const handleSearchSubmit = (query) => {
     setSearchQuery(query);
-    setCurrentPage(1); // Reset current page when performing a new search
+    setCurrentPage(1);
     fetchImages(query);
   };
 
@@ -33,8 +35,10 @@ function App() {
 
       if (page === 1) {
         setImages(response.data.hits);
+        console.log('fetchIf');
       } else {
         setImages((prevImages) => [...prevImages, ...response.data.hits]);
+        console.log('fetchElse');
       }
 
       setIsLoading(false);
@@ -48,6 +52,7 @@ function App() {
     const nextPage = currentPage + 1;
     fetchImages(searchQuery, nextPage);
     setCurrentPage(nextPage);
+    console.log('loadMore');
   };
 
   const handleImageClick = (imageUrl) => {
@@ -65,7 +70,7 @@ function App() {
       <h1>Image Search App</h1>
       <Searchbar onSubmit={handleSearchSubmit} />
       {isLoading ? (
-        <CustomLoader />
+        <CustomLoader /> 
       ) : (
         <>
           <ImageGallery images={images} onImageClick={handleImageClick} />

@@ -4,13 +4,8 @@ import css from './loader.module.css';
 
 const CustomLoader = () => {
   return (
-    <div className={css.loader}>
-      <TailSpin
-        className={css.spinner}
-        color="#00BFFF"
-        height={50}
-        width={50}
-      />
+    <div className={css.loaderOverlay}>
+      <TailSpin type="TailSpin" color="#00BFFF" height={80} width={80} />
     </div>
   );
 };
